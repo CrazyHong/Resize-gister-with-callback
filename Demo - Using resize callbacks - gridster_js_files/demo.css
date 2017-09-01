@@ -1,0 +1,30 @@
+.gridster * {
+	margin: 0px; padding: 0px;
+}
+ul {
+	list-style-type: none;
+}
+body {
+	margin: 30px 40px; color: rgb(68, 68, 68); font-family: "Helvetica Neue", Arial, sans-serif; font-size: 16px;
+}
+.controls {
+	margin-bottom: 20px;
+}
+.gridster ul {
+	background-color: rgb(239, 239, 239);
+}
+.gridster li {
+	text-align: center; line-height: 100%; font-size: 1em; font-weight: bold;
+}
+.gridster {
+	margin: 0px auto; transition:opacity 0.6s; opacity: 0.8; -webkit-transition: opacity .6s; -moz-transition: opacity .6s; -o-transition: opacity .6s;
+}
+.gridster .gs-w {
+	background: rgb(221, 221, 221); cursor: pointer;
+}
+.gridster .player {
+	background: rgb(187, 187, 187);
+}
+.gridster .preview-holder {
+	background: red !important; border: currentColor !important; border-image: none !important;
+}
