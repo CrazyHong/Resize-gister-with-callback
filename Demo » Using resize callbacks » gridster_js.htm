@@ -1,0 +1,71 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0053)http://gridster.net/demos/using-resize-callbacks.html -->
+<!DOCTYPE html PUBLIC "" ""><HTML><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+   <TITLE>Demo » Using resize callbacks » gridster.js</TITLE>   
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"><LINK href="Demo%20»%20Using%20resize%20callbacks%20»%20gridster_js_files/jquery.gridster.css" 
+rel="stylesheet" type="text/css">   <LINK href="Demo%20»%20Using%20resize%20callbacks%20»%20gridster_js_files/demo.css" 
+rel="stylesheet" type="text/css">   
+<STYLE>
+    #log {
+      margin-top: 20px;
+      max-height: 400px;
+      overflow: auto;
+      max-width: 250px;
+      border: 1px solid #DDD;
+    }
+  </STYLE>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.9600.18125"></HEAD> 
+<BODY>
+<H1>Resize callbacks</H1>
+<P>Resize some widgets and see the log below.</P>
+<DIV class="gridster">
+<UL>
+  <LI data-sizey="2" data-sizex="2" data-col="1" data-row="1">0</LI>
+  <LI data-sizey="2" data-sizex="1" data-col="3" data-row="1">1</LI>
+  <LI data-sizey="1" data-sizex="1" data-col="4" data-row="1">2</LI>
+  <LI data-sizey="1" data-sizex="3" data-col="2" data-row="3">3</LI>
+  <LI data-sizey="1" data-sizex="1" data-col="1" data-row="4">4</LI>
+  <LI data-sizey="1" data-sizex="1" data-col="1" data-row="3">5</LI>
+  <LI data-sizey="1" data-sizex="1" data-col="2" data-row="4">6</LI>
+  <LI data-sizey="1" data-sizex="1" data-col="2" data-row="5">7</LI>
+  <LI data-sizey="1" data-sizex="1" data-col="4" data-row="4">8</LI>
+  <LI data-sizey="3" data-sizex="1" data-col="5" data-row="1">9</LI></UL></DIV>
+<H3>Log</H3>
+<DIV id="log"></DIV>
+<SCRIPT src="Demo%20»%20Using%20resize%20callbacks%20»%20gridster_js_files/jquery.js" type="text/javascript"></SCRIPT>
+     
+<SCRIPT src="Demo%20»%20Using%20resize%20callbacks%20»%20gridster_js_files/jquery.gridster.js" type="text/javascript" charset="utf-8"></SCRIPT>
+     
+<SCRIPT type="text/javascript">
+      var gridster;
+
+      $(function(){
+
+        var log = document.getElementById('log');
+
+
+        gridster = $(".gridster ul").gridster({
+          widget_base_dimensions: [100, 55],
+          widget_margins: [5, 5],
+          resize: {
+            enabled: true,
+            start: function(e, ui, $widget) {
+              log.innerHTML = 'START position: ' + ui.position.top +' '+ ui.position.left + "<br >" + log.innerHTML;
+            },
+
+            resize: function(e, ui, $widget) {
+              log.innerHTML = 'RESIZE offset: ' + ui.pointer.diff_top +' '+ ui.pointer.diff_left + "<br >" + log.innerHTML;
+            },
+
+            stop: function(e, ui, $widget) {
+              log.innerHTML = 'STOP position: ' + ui.position.top +' '+ ui.position.left + "<br >" + log.innerHTML;
+            }
+          }
+        }).data('gridster');
+
+
+      });
+    </SCRIPT>
+ </BODY></HTML>
